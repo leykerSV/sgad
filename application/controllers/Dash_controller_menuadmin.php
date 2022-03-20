@@ -68,7 +68,12 @@ class Dash_controller_menuadmin extends CI_Controller
 		$resultado = mysqli_query ($conexion, $sql) or die ();
 		$NCExcel = array();
 		while($rows = mysqli_fetch_assoc($resultado) ) {
-			$NCExcel[] = $rows;
+                    if ($rows['estado']==0){
+                        $rows['estado']="Abierto";
+                    }else{
+                        $rows['estado']="Cerrado";
+                    };
+                    $NCExcel[] = $rows;
 		};
 
                 mysqli_close($conexion);
@@ -108,7 +113,17 @@ class Dash_controller_menuadmin extends CI_Controller
 		$resultado = mysqli_query ($conexion, $sql) or die ();
 		$AccionesExcel = array();
 		while($rows = mysqli_fetch_assoc($resultado) ) {
-			$AccionesExcel[] = $rows;
+                    if ($rows['plazosejecucion']=="0000-00-00"){
+                        $rows['plazosejecucion']="";
+                    }
+                    if ($rows['fechaverifeficacia']=="0000-00-00"){
+                        $rows['fechaverifeficacia']="";
+                    }
+                    if ($rows['fecharealizacion']=="0000-00-00"){
+                        $rows['fecharealizacion']="";
+                    }
+                    
+                    $AccionesExcel[] = $rows;
 		};
 
                 mysqli_close($conexion);
@@ -148,7 +163,16 @@ class Dash_controller_menuadmin extends CI_Controller
 		$resultado = mysqli_query ($conexion, $sql) or die ();
 		$AccionesNCExcel = array();
 		while($rows = mysqli_fetch_assoc($resultado) ) {
-			$AccionesNCExcel[] = $rows;
+                    if ($rows['plazosejecucion']=="1970-01-01"){
+                        $rows['plazosejecucion']="";
+                    }
+                    if ($rows['fechaverifeficacia']=="1970-01-01"){
+                        $rows['fechaverifeficacia']="";
+                    }
+                    if ($rows['fecharealizacion']=="1970-01-01"){
+                        $rows['fecharealizacion']="";
+                    }
+                    $AccionesNCExcel[] = $rows;
 		};
 
                 mysqli_close($conexion);
