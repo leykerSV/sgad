@@ -1,0 +1,27 @@
+NCs
+>> Cuando se tiene la visiualización de la creación de una NC, en origen, autor, departamento, estado aparecen los números ID y no los nombres
+>> Cuando se tiene la visiualización de la creación de una NC, ver si se puede colocar la fecha en forma DD/MM/AA
+>> Botón: Modificar --> cambiar por Significancia
+>> Botón: Espina de Pescado --> cambiar por Análisis de Causas
+>> Automatización del Análisis de Significancia: 
+* 1 ó 2: ir a Analisis de Causas y permitir que se escriba sólo la "Descripción de Causas" (espina de pescado y porqués en gris)
+* 3 ó 4: hacer una pregunta: se hace Espina de Pescado? Si es SI, tiene que quedar en el botón "Análisis de Causas" la Espina de Pescado y los Porqués. Si es NO, debería aparecer para cargar el análisis de porqués y la espina de pescado en gris
+* 6 ó 9: en el botón "análisis de causas" tiene que aparecer todo.
+* 10: sería para las Oportunidades de Mejora: ir a Analisis de Causas y permitir que se escriba sólo la "Descripción de Causas" (espina de pescado y porqués en gris)
+>> Tener en cuenta que el Analisis de Significancia se completa una sóla vez y luego debería quedar gris o que no se pueda editar.
+>> Pantalla que se abre con el Botón Espina de Pescado: es necesario que se incluya el botón al pié "Agregar Causa" ya que cada conjunto de porqués se asocia  a un item de los de la espina de pescado. (ver adjunto)
+>> En la misma pantalla se debería agregar un botón de Finalizar análisis para que no se pueda cargar nada más, pero preferiría que se pueda seguir visualizando (hoy se pone en negro y no se puede volver a abrir)
+>> En la misma pantalla de la Espina de Pescado y de los Porques, yo pondría abajo el Cuadro "Descripción de Análisis de Causas" para que se cargue allí en cualquiera de las Significancias
+>> En la versión anterior que estaba subida, había también un botón en el pié que decía Agregar/Generar  Acciones. (Ver adjunto)
+
+>> Campo NC Propias: debería ser vista por el Autor de la NC
+
+Acciones
+>> Hay datos de la generación de las acciones que vienen de NC que podés tomar de los datos cargados para la NC: depto, lider (mismo que el asignado a la NC).
+>> Descripción de Causa: cambiar a Descripción del Problema
+>> Descripción de Acciones: cambiar a Descripción de Acción
+>> Tipo: cambiar el combo a: Inmediata, Correctiva, Preventiva
+>> Plazo de ejecución: cambiar por Fecha de ejecución y completar con campo tipo fecha
+>> Implementación: NO por defecto. Ver combo de Estado de Implementación.
+>> A partir de campos de Eficacia, esto para el Responsable de la acción debe estar en gris y lo tiene que visualizar el Autor/Generador de la Acción
+>> Campo Retroanálisis: cambiar por Retroalimenta Análisis de Riesgos?. Completar con SI/NO/NA
