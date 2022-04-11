@@ -49,7 +49,7 @@ class Dash_model_menuadmin extends CI_Model
     
     public function todaslasacciones()
     {
-        $this->db->select('sgad_acciones.*');
+        $this->db->select('sgad_acciones.*,');
         $this->db->select('A.nombre as lider');
         $this->db->select('B.nombre as responsable');
         $this->db->select('types.type as tipoaccion');

@@ -23,6 +23,7 @@
                             <th>Fecha Verif Eficacia</th>
                             <th>Estado de Eficacia</th>
                             <th>Observaciones</th>
+                            <th>Estado</th>
                         </tr>
                     </thead>
                     <tbody>

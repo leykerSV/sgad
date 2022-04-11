@@ -99,7 +99,7 @@ class Dash_controller_menuadmin extends CI_Controller
 		$conexion = mysqli_connect ("localhost", "sgad", "Cacc#1708");
 		mysqli_select_db ($conexion, "cocyar_sgad");
                 
-		$sql = "SELECT sgad_acciones.*,
+		$sql = "SELECT sgad_acciones.id,sgad_acciones.fecha,sgad_acciones.origen,sgad_acciones.lider,sgad_acciones.descripcioncausas,sgad_acciones.descripcionacciones,sgad_acciones.tipoaccion,sgad_acciones.responsable,sgad_acciones.plazosejecucion,sgad_acciones.implementada,sgad_acciones.estadoimplementacion,sgad_acciones.eficaz,sgad_acciones.fechaverifeficacia,sgad_acciones.resultadoeficacia,sgad_acciones.observaciones,sgad_acciones.fecharealizacion,sgad_acciones.estadover,
                     A.nombre as lider,
                     B.nombre as responsable,
                     types.type as tipoaccion,
@@ -113,6 +113,11 @@ class Dash_controller_menuadmin extends CI_Controller
 		$resultado = mysqli_query ($conexion, $sql) or die ();
 		$AccionesExcel = array();
 		while($rows = mysqli_fetch_assoc($resultado) ) {
+                    if ($rows['estadover']==0){
+                        $rows['estadover']="Abierto";
+                    }else{
+                        $rows['estadover']="Cerrado";
+                    };
                     if ($rows['plazosejecucion']=="0000-00-00"){
                         $rows['plazosejecucion']="";
                     }
@@ -149,7 +154,7 @@ class Dash_controller_menuadmin extends CI_Controller
 		$conexion = mysqli_connect ("localhost", "sgad", "Cacc#1708");
 		mysqli_select_db ($conexion, "cocyar_sgad");
                 
-		$sql = "SELECT sgad_acciones_nc.*,
+		$sql = "SELECT sgad_acciones_nc.id,sgad_acciones_nc.fecha,sgad_acciones_nc.origen,sgad_acciones_nc.lider,sgad_acciones_nc.descripcioncausas,sgad_acciones_nc.descripcionacciones,sgad_acciones_nc.tipoaccion,sgad_acciones_nc.responsable,sgad_acciones_nc.plazosejecucion,sgad_acciones_nc.implementada,sgad_acciones_nc.estadoimplementacion,sgad_acciones_nc.eficaz,sgad_acciones_nc.fechaverifeficacia,sgad_acciones_nc.resultadoeficacia,sgad_acciones_nc.observaciones,sgad_acciones_nc.fecharealizacion,sgad_acciones_nc.estadover,
                     A.nombre as lider,
                     B.nombre as responsable,
                     types.type as tipoaccion,
@@ -163,6 +168,11 @@ class Dash_controller_menuadmin extends CI_Controller
 		$resultado = mysqli_query ($conexion, $sql) or die ();
 		$AccionesNCExcel = array();
 		while($rows = mysqli_fetch_assoc($resultado) ) {
+                    if ($rows['estadover']==0){
+                        $rows['estadover']="Abierto";
+                    }else{
+                        $rows['estadover']="Cerrado";
+                    };
                     if ($rows['plazosejecucion']=="1970-01-01"){
                         $rows['plazosejecucion']="";
                     }

@@ -18,7 +18,7 @@
                             <th>Observaciones</th>
                             <th>Analisis Signif.</th>
                             <th>Desc. Causas</th>
-                            <th>RetroAnalisis</th>
+                            <th>Retroalim. a PI</th>
                             <th>Proc. Cambio</th>
                             <th>Estado</th>
                         </tr>
