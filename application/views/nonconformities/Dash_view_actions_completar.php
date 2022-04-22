@@ -41,10 +41,15 @@
                                     <input type="text" class="form-control" name="fecharealizacion"
                                         data-inputmask-alias="datetime" data-inputmask-inputformat="dd-mm-yyyy"
                                         data-mask placeholder="" value="">
-                                <?php }else{ ?>
+                                <?php }else{ 
+                                    $originalDate = $fila['fecharealizacion'];
+                                    //original date is in format YYYY-mm-dd
+                                    $timestamp = strtotime($originalDate); 
+                                    $newDate = date("d-m-Y", $timestamp );
+                                    ?>
                                     <input type="text" class="form-control" name="fecharealizacion"
                                         data-inputmask-alias="datetime" data-inputmask-inputformat="dd-mm-yyyy"
-                                        data-mask placeholder="" value="<?php echo $fila['fecharealizacion']; ?>">
+                                        data-mask placeholder="" value="<?php echo $newDate; ?>">
                                 <?php }; ?>
                                 
                             </div>
@@ -127,10 +132,15 @@
                                     <input type="text" class="form-control" name="fechaverifeficacia"
                                         data-inputmask-alias="datetime" data-inputmask-inputformat="dd-mm-yyyy"
                                         data-mask placeholder="" value="">
-                                <?php }else{ ?>
+                                <?php }else{ 
+                                    $originalDate = $fila['fechaverifeficacia'];
+                                    //original date is in format YYYY-mm-dd
+                                    $timestamp = strtotime($originalDate); 
+                                    $newDate = date("d-m-Y", $timestamp );
+                                    ?>
                                     <input type="text" class="form-control" name="fechaverifeficacia"
                                         data-inputmask-alias="datetime" data-inputmask-inputformat="dd-mm-yyyy"
-                                        data-mask placeholder="" value="<?php echo $fila['fechaverifeficacia']; ?>">
+                                        data-mask placeholder="" value="<?php echo $newDate; ?>">
                                 <?php }; ?>
                                 
                                 

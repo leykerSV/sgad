@@ -18,14 +18,15 @@ Class Userdb extends CI_Model
     function login($username, $password)
     {
         date_default_timezone_set('America/Argentina/Cordoba');
-        $this->db->select('id, nombre, email, username, password, nivel, habilitado');
-        $this->db->from('users');
-        $this->db->where('email = ' . "'" . $username . "'");
-        $this->db->where('password = ' . "'" . MD5($password) . "'");
-        $this->db->where('habilitado = ' . "'" . 1 . "'");
-        $this->db->limit(1);
+        $DB2 = $this->load->database('login', TRUE);
+        $DB2->select('id, nombre, email, username, password, nivel, habilitado');
+        $DB2->from('users');
+        $DB2->where('email = ' . "'" . $username . "'");
+        $DB2->where('password = ' . "'" . MD5($password) . "'");
+        $DB2->where('habilitado = ' . "'" . 1 . "'");
+        $DB2->limit(1);
 
-        $query = $this->db->get();
+        $query = $DB2->get();
         $a=$query->result();
 
         if($query->num_rows() == 1)
@@ -42,11 +43,12 @@ Class Userdb extends CI_Model
 
 	public function getUsersxLeaders()
     {
-        $this->db->select('id, nombre');
-        $this->db->from('users');
-        $this->db->where('habilitado', 1);
-        $this->db->order_by("nombre", "asc");
-        $query = $this->db->get();
+        $DB2 = $this->load->database('login', TRUE);
+        $DB2->select('id, nombre');
+        $DB2->from('users');
+        $DB2->where('habilitado', 1);
+        $DB2->order_by("nombre", "asc");
+        $query = $DB2->get();
 
         if ($query->num_rows() > 0) {
             return $query->result_array();
