@@ -316,18 +316,6 @@
                                         <p>Origenes</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="<?php echo base_url()?>index.php/Dash_controller_users" class="nav-link">
-                                        <?php
-                                        if(uri_string()=="Dash_controller_users"){
-                                            echo '<i class="fas fa-circle nav-icon"></i>';
-                                        }else{
-                                            echo '<i class="far fa-circle nav-icon"></i>';
-                                        }
-                                        ?>
-                                        <p>Usuarios</p>
-                                    </a>
-                                </li>
                             </ul>
                         </li>
                     </ul>

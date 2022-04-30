@@ -149,7 +149,13 @@ class Dash_controller_nonconformities extends CI_Controller
         if (isset($_SESSION['id'])) {
             $datastore=$this->Dash_model_nonconformities->storeNonconformities($_POST);
             if (isset($datastore)) {
-                $data['messagetrue'] = 'NC creado existosmente';
+                $mail=$this->Userdb->getemail($_POST['lider']);
+                $destinatario=$mail['email'];
+                $nombredestinatario=$mail['nombre'];
+                $nc=$datastore;
+                $cuerpomail='Estimado usuario '.$nombredestinatario.' ha sido asignado como lider de No Conformidad';
+                $this->notificarViaMail($destinatario, $nombredestinatario, $nc, $cuerpomail);        
+                $data['messagetrue'] = 'NC creado existosamente';
             } else {
                 $data['messagefalse'] = 'Error al crear NC';
             }            
@@ -158,8 +164,34 @@ class Dash_controller_nonconformities extends CI_Controller
             redirect('menu', 'refresh');
         }
     }
+    
+    function notificarViaMail($destinatario, $nombredestinatario, $nc, $cuerpomail) {
+        
+        
+        $asunto = 'Aviso Sistema SGAD';
+        
 
-	public function complete()
+        $this->load->library('email','','correo');
+        
+        //Email content
+        //$htmlContent = $cuerpomail;
+
+   		$this->correo->from('sgadcocyar@gmail.com', 'SGAd');
+  		$this->correo->to($destinatario);
+  		$this->correo->subject($asunto);
+  		$this->correo->message($cuerpomail);
+		if($this->correo->send())
+  		{
+   			
+  		}
+  		else
+  		{
+   			show_error($this->correo->print_debugger());
+  		}
+
+    }
+
+    public function complete()
     {
         if (isset($_SESSION['id'])) {
             $datastore = $this->Dash_model_nonconformities->CompleteNonconformities($_POST);
@@ -204,6 +236,12 @@ class Dash_controller_nonconformities extends CI_Controller
         if (isset($_SESSION['id'])) {
             $datastore = $this->Dash_model_nonconformities->GuardaAccion($id, $_POST);
             if (isset($datastore)) {
+                $mail=$this->Userdb->getemail($_POST['responsable']);
+                $destinatario=$mail['email'];
+                $nombredestinatario=$mail['nombre'];
+                $nc=$datastore;
+                $cuerpomail='Estimado usuario '.$nombredestinatario.' ha sido asignado como responsable de la Acción de No Conformidad';
+                $this->notificarViaMail($destinatario, $nombredestinatario, $nc, $cuerpomail);
                 $data['messagetrue'] = 'Acción Creada con Exito';
                 
             }else{

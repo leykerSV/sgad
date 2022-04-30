@@ -86,6 +86,11 @@ class Dash_controller_actions extends CI_Controller
         if (isset($_SESSION['id'])) {
             $datastore = $this->Dash_model_actions->storeAction($_POST);
             if (isset($datastore)) {
+                $mail=$this->Userdb->getemail($_POST['responsable']);
+                $destinatario=$mail['email'];
+                $nombredestinatario=$mail['nombre'];
+                $cuerpomail='Estimado usuario '.$nombredestinatario.' ha sido asignado como responsable de la Acción';
+                $this->notificarViaMail($destinatario, $nombredestinatario, $cuerpomail);
                 $data['messagetrue'] = 'Acción creada existosamente';
                 //$datauser = $this->Dash_model_users->getUser($_POST['responsible_id']);
                 //$this->sendMail($datauser['email'], 'Estimado: le informamos que posee una nueva acción a realizar.-');
@@ -96,6 +101,30 @@ class Dash_controller_actions extends CI_Controller
         } else {
             redirect('Dash_controller_users', "location");
         }
+    }
+    
+    function notificarViaMail($destinatario, $nombredestinatario, $cuerpomail) {
+        
+        
+        $asunto = 'Aviso Sistema SGAD';
+        $this->load->library('email','','correo');
+        
+        //Email content
+        //$htmlContent = $cuerpomail;
+
+   		$this->correo->from('sgadcocyar@gmail.com', 'SGAd');
+  		$this->correo->to($destinatario);
+  		$this->correo->subject($asunto);
+  		$this->correo->message($cuerpomail);
+		if($this->correo->send())
+  		{
+   			
+  		}
+  		else
+  		{
+   			show_error($this->correo->print_debugger());
+  		}
+
     }
 
     public function edit()

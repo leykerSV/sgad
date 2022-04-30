@@ -114,6 +114,8 @@ class Dash_model_actions extends CI_Model
         $this->db->update('sgad_acciones', $data);
 		return true;
     }
+    
+    
 
 
 }

@@ -15,6 +15,9 @@
                 <table class="table table-striped projects">
                     <thead>
                         <tr>
+                            <th width=40>
+                                #
+                            </th>
                             <th width=120>
                                 Fecha Apertura
                             </th>
@@ -47,7 +50,7 @@
                             foreach($nonconformities as $row)
                         	{
 								echo '<tr>';
-								//echo '<td>'. $row['id'] .'</td>';
+								echo '<td>'. $row['id'] .'</td>';
 								$inicio1 = strtotime($row['fecha']);
                                                                 $fff1 = date('d-m-Y',$inicio1);
 								echo '<td>'. $fff1 .'</td>';

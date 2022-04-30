@@ -56,5 +56,21 @@ Class Userdb extends CI_Model
             return null;
         }
     }
+    
+    public function getemail($id)
+    {
+        $DB2 = $this->load->database('login', TRUE);
+        $DB2->select('nombre, email');
+        $a='id='.$id;
+        $DB2->where($a);
+        $DB2->from('users');
+        $query = $DB2->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->row_array();
+        }else{
+            return null;
+        }
+    }
 
 }   
