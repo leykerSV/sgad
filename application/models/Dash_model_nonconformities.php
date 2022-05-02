@@ -208,18 +208,23 @@ class Dash_model_nonconformities extends CI_Model
 
     public function storeNonconformities($data)
     {
-		$newDate = date("Y-m-d", strtotime($data["fecha"]));
-		$this->db->set('fecha', $newDate);
-        $this->db->set('origen', $data['origen']);
-		$this->db->set('autor', $_SESSION['id']);
-        $this->db->set('tipo', $data['tipo']);
-		$this->db->set('descnoconf', $data['descnoconf']);
-        $this->db->set('lider', $data['lider']);
-		$this->db->set('depto', $data['depto']);
-		$this->db->set('docasociada', $data['docasociada']);
-		$this->db->set('observaciones', $data['observaciones']);
-        $this->db->insert('sgad_noconformidad');
-        return true;
+            $newDate = date("Y-m-d", strtotime($data["fecha"]));
+            $this->db->set('fecha', $newDate);
+            $this->db->set('origen', $data['origen']);
+            $this->db->set('autor', $_SESSION['id']);
+            $this->db->set('tipo', $data['tipo']);
+            $this->db->set('descnoconf', $data['descnoconf']);
+            $this->db->set('lider', $data['lider']);
+            $this->db->set('depto', $data['depto']);
+            $this->db->set('docasociada', $data['docasociada']);
+            $this->db->set('observaciones', $data['observaciones']);
+            $this->db->insert('sgad_noconformidad');
+            $devid=$this->db->query('SELECT MAX(id) AS id FROM sgad_noconformidad');
+        foreach ($devid->result() as $row)
+        {
+            return $row->id;
+        }
+
     }
 
     public function GuardaAccion($id, $data)
@@ -283,6 +288,11 @@ class Dash_model_nonconformities extends CI_Model
             $this->db->set('fecharealizacion', $newDate);
         }
         $this->db->insert('sgad_acciones_nc');
+        $devid=$this->db->query('SELECT MAX(id) AS id FROM sgad_acciones_nc');
+        foreach ($devid->result() as $row)
+        {
+            return $row->id;
+        }
         return true;
     }
 

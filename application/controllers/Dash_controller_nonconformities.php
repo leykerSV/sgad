@@ -153,7 +153,7 @@ class Dash_controller_nonconformities extends CI_Controller
                 $destinatario=$mail['email'];
                 $nombredestinatario=$mail['nombre'];
                 $nc=$datastore;
-                $cuerpomail='Estimado usuario '.$nombredestinatario.' ha sido asignado como lider de No Conformidad';
+                $cuerpomail='Estimado usuario '.$nombredestinatario.' ha sido asignado como lider de No Conformidad nro. '.$datastore;
                 $this->notificarViaMail($destinatario, $nombredestinatario, $nc, $cuerpomail);        
                 $data['messagetrue'] = 'NC creado existosamente';
             } else {
@@ -240,7 +240,7 @@ class Dash_controller_nonconformities extends CI_Controller
                 $destinatario=$mail['email'];
                 $nombredestinatario=$mail['nombre'];
                 $nc=$datastore;
-                $cuerpomail='Estimado usuario '.$nombredestinatario.' ha sido asignado como responsable de la Acción de No Conformidad';
+                $cuerpomail='Estimado usuario '.$nombredestinatario.' ha sido asignado como responsable de la Acción nro.'.$datastore.' de No Conformidad nro. '.$id;
                 $this->notificarViaMail($destinatario, $nombredestinatario, $nc, $cuerpomail);
                 $data['messagetrue'] = 'Acción Creada con Exito';
                 

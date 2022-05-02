@@ -89,7 +89,7 @@ class Dash_controller_actions extends CI_Controller
                 $mail=$this->Userdb->getemail($_POST['responsable']);
                 $destinatario=$mail['email'];
                 $nombredestinatario=$mail['nombre'];
-                $cuerpomail='Estimado usuario '.$nombredestinatario.' ha sido asignado como responsable de la Acción';
+                $cuerpomail='Estimado usuario '.$nombredestinatario.' ha sido asignado como responsable de la Acción nro. '.$datastore;
                 $this->notificarViaMail($destinatario, $nombredestinatario, $cuerpomail);
                 $data['messagetrue'] = 'Acción creada existosamente';
                 //$datauser = $this->Dash_model_users->getUser($_POST['responsible_id']);

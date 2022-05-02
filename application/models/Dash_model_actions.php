@@ -106,7 +106,12 @@ class Dash_model_actions extends CI_Model
         $data['plazosejecucion'] = date("Y-m-d", strtotime($originalDate));
         
         $this->db->insert('sgad_acciones', $data);
-        return true;
+        $devid=$this->db->query('SELECT MAX(id) AS id FROM sgad_acciones');
+        foreach ($devid->result() as $row)
+        {
+            return $row->id;
+        }
+        
     }
 
 	public function updateAction($data)
