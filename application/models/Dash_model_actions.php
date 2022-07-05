@@ -64,6 +64,14 @@ class Dash_model_actions extends CI_Model
         }
     }
 
+    public function CuentaAccion($id)
+    {
+        $this->db->select('*');
+        $this->db->from('sgad_acciones');
+        $this->db->where('responsable', $id);
+        $query = $this->db->get();
+        return $query->num_rows();;
+    }
    
     function GuardaAccionCompleta($id,$data){
                 var_dump($data);

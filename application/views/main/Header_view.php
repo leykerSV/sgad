@@ -35,12 +35,17 @@
             <a class="nav-link" data-toggle="dropdown" href="#">
             Acciones: 
                 <i class="far fa-bell"></i>
-                <span class="badge badge-warning navbar-badge">15</span>
+                <span class="badge badge-warning navbar-badge"><?php echo $AccionContador; ?></span>
             </a>
             <a class="nav-link" data-toggle="dropdown" href="#">
             No Conformidades: 
                 <i class="far fa-comments"></i>
-                <span class="badge badge-danger navbar-badge">3</span>
+                <span class="badge badge-danger navbar-badge"><?php echo $NCContador; ?></span>
+            </a>
+            <a class="nav-link" data-toggle="dropdown" href="#">
+            Acciones de No Conformidades: 
+                <i class="far fa-comment-alt"></i>
+                <span class="badge badge-info navbar-badge"><?php echo $AccionesNCCOntador; ?></span>
             </a>
 
             <!-- Right navbar links -->

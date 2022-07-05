@@ -25,7 +25,7 @@ class Dash_model_porques extends CI_Model
 	public function storePorques($id, $data)
     {
         $this->db->set('id_espinapescado', $id);
-		$this->db->set('causa', $data['causa']);
+	$this->db->set('causa', $data['causa']);
         $this->db->set('porque1', $data['porque1']);
         $this->db->set('porque2', $data['porque2']);
         $this->db->set('porque3', $data['porque3']);

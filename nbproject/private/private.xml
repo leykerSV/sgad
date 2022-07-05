@@ -3,11 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp64/www/sgad/application/models/Userdb.php</file>
-            <file>file:/C:/wamp64/www/sgad/application/controllers/Login.php</file>
-            <file>file:/C:/wamp64/www/sgad/application/views/nonconformities/Dash_view_actions_create.php</file>
-            <file>file:/C:/wamp64/www/sgad/application/controllers/Dash_controller_nonconformities.php</file>
+            <file>file:/C:/wamp64/www/sgad/application/views/porques/Dash_view_porques_create.php</file>
+            <file>file:/C:/wamp64/www/sgad/application/controllers/Dash_controller_porques.php</file>
+            <file>file:/C:/wamp64/www/sgad/application/models/Dash_model_porques.php</file>
+            <file>file:/C:/wamp64/www/sgad/application/controllers/Dash_controller_menuadmin.php</file>
+            <file>file:/C:/wamp64/www/sgad/application/controllers/Principal.php</file>
+            <file>file:/C:/wamp64/www/sgad/application/controllers/Dash_controller_actions.php</file>
+            <file>file:/C:/wamp64/www/sgad/application/views/main/Header_view.php</file>
             <file>file:/C:/wamp64/www/sgad/application/models/Dash_model_nonconformities.php</file>
+            <file>file:/C:/wamp64/www/sgad/application/views/espinapescado/Dash_view_espinapescado_create.php</file>
+            <file>file:/C:/wamp64/www/sgad/application/models/Dash_model_menuadmin.php</file>
+            <file>file:/C:/wamp64/www/sgad/application/controllers/Dash_controller_snc.php</file>
+            <file>file:/C:/wamp64/www/sgad/application/models/Userdb.php</file>
+            <file>file:/C:/wamp64/www/sgad/application/models/Dash_model_espinapescado.php</file>
+            <file>file:/C:/wamp64/www/sgad/application/controllers/Dash_controller_nonconformities.php</file>
         </group>
     </open-files>
 </project-private>

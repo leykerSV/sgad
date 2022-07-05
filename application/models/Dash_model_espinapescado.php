@@ -54,13 +54,13 @@ class Dash_model_espinapescado extends CI_Model
 	public function storePorque($id, $data)
     {
         $this->db->set('id_nc', $id);
-		$this->db->set('causa', $data['causa']);
+	$this->db->set('causa', $data['causa']);
         $this->db->set('porque1', $data['porque1']);
         $this->db->set('porque2', $data['porque2']);
         $this->db->set('porque3', $data['porque3']);
         $this->db->set('porque4', $data['porque4']);
         $this->db->set('porque5', $data['porque5']);
-		$this->db->set('conclusion', $data['conclusion']);
+	$this->db->set('conclusion', $data['conclusion']);
         $this->db->insert('sgad_porques');
         return true;
     }

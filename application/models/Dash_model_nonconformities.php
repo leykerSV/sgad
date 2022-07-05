@@ -40,6 +40,24 @@ class Dash_model_nonconformities extends CI_Model
         return $query->row_array();
 
     }
+    
+    public function CuentaNC($id)
+    {
+        $this->db->select('*');
+        $this->db->from('sgad_noconformidad');
+        $this->db->where('lider', $id);
+        $query = $this->db->get();
+        return $query->num_rows();;
+    }
+    
+    public function CuentaAccionesNC($id)
+    {
+        $this->db->select('*');
+        $this->db->from('sgad_acciones_nc');
+        $this->db->where('responsable', $id);
+        $query = $this->db->get();
+        return $query->num_rows();;
+    }
 
 	public function verNC($id)
     {

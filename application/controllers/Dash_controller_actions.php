@@ -6,7 +6,10 @@ class Dash_controller_actions extends CI_Controller
     public function index()
     {
         if (isset($_SESSION['id'])) {
-            $this->load->view('main/Header_view');
+            $data['AccionContador'] = $this->Dash_model_actions->CuentaAccion($_SESSION['id']);
+            $data['NCContador'] = $this->Dash_model_nonconformities->CuentaNC($_SESSION['id']);
+            $data['AccionesNCCOntador'] = $this->Dash_model_nonconformities->CuentaAccionesNC($_SESSION['id']);
+            $this->load->view('main/Header_view',$data);
             $this->load->view('actions/Dash_view_actions');
             $this->load->view('main/Footer_view');
         } else {
@@ -18,8 +21,11 @@ class Dash_controller_actions extends CI_Controller
     {
         if (isset($_SESSION['id'])) {
             $data['acciones'] = $this->Dash_model_actions->getActionsxCurrentUser($_SESSION['id']);
-            $this->load->view('main/Header_view');
-            $this->load->view('actions/Dash_view_actions_showx_currentuser', $data);
+            $data['AccionContador'] = $this->Dash_model_actions->CuentaAccion($_SESSION['id']);
+            $data['NCContador'] = $this->Dash_model_nonconformities->CuentaNC($_SESSION['id']);
+            $data['AccionesNCCOntador'] = $this->Dash_model_nonconformities->CuentaAccionesNC($_SESSION['id']);
+            $this->load->view('main/Header_view', $data);
+            $this->load->view('actions/Dash_view_actions_showx_currentuser');
             $this->load->view('main/Footer_view');
         } else {
             redirect('Dash_controller_credentials', "location");
@@ -30,8 +36,11 @@ class Dash_controller_actions extends CI_Controller
     {
         if (isset($_SESSION['id'])) {
             $data['acciones'] = $this->Dash_model_actions->getActionsxCurrentUserPropias($_SESSION['id']);
-            $this->load->view('main/Header_view');
-            $this->load->view('actions/Dash_view_actions_showx_currentuser_propias', $data);
+            $data['AccionContador'] = $this->Dash_model_actions->CuentaAccion($_SESSION['id']);
+            $data['NCContador'] = $this->Dash_model_nonconformities->CuentaNC($_SESSION['id']);
+            $data['AccionesNCCOntador'] = $this->Dash_model_nonconformities->CuentaAccionesNC($_SESSION['id']);
+            $this->load->view('main/Header_view', $data);
+            $this->load->view('actions/Dash_view_actions_showx_currentuser_propias');
             $this->load->view('main/Footer_view');
         } else {
             redirect('Dash_controller_credentials', "location");
@@ -45,8 +54,11 @@ class Dash_controller_actions extends CI_Controller
             $data['types'] = $this->Dash_model_useful->getTypes();
             $data['origins'] = $this->Dash_model_origins->getOrigins();
             $data['lider']=$_SESSION['id'];
-            $this->load->view('main/Header_view');
-            $this->load->view('actions/Dash_view_actions_create', $data);
+            $data['AccionContador'] = $this->Dash_model_actions->CuentaAccion($_SESSION['id']);
+            $data['NCContador'] = $this->Dash_model_nonconformities->CuentaNC($_SESSION['id']);
+            $data['AccionesNCCOntador'] = $this->Dash_model_nonconformities->CuentaAccionesNC($_SESSION['id']);
+            $this->load->view('main/Header_view', $data);
+            $this->load->view('actions/Dash_view_actions_create');
             $this->load->view('main/Footer_view');
         } else {
             redirect('Dash_controller_actions/showxCurrentUser', "location");
@@ -57,8 +69,11 @@ class Dash_controller_actions extends CI_Controller
     {
 		$data['id'] = $id;
 		$data['acciones'] = $this->Dash_model_actions->getAction($id);
-		$this->load->view('main/Header_view');
-		$this->load->view('actions/Dash_view_actions_completar', $data);
+                $data['AccionContador'] = $this->Dash_model_actions->CuentaAccion($_SESSION['id']);
+                $data['NCContador'] = $this->Dash_model_nonconformities->CuentaNC($_SESSION['id']);
+                $data['AccionesNCCOntador'] = $this->Dash_model_nonconformities->CuentaAccionesNC($_SESSION['id']);
+		$this->load->view('main/Header_view', $data);
+		$this->load->view('actions/Dash_view_actions_completar');
 		$this->load->view('main/Footer_view');
     }
     
@@ -77,8 +92,11 @@ class Dash_controller_actions extends CI_Controller
     }
 
     Public function view_salida($data = null){
-        $this->load->view('main/Header_view');
-        $this->load->view('nonconformities/View_salida', $data);
+        $data['AccionContador'] = $this->Dash_model_actions->CuentaAccion($_SESSION['id']);
+        $data['NCContador'] = $this->Dash_model_nonconformities->CuentaNC($_SESSION['id']);
+        $data['AccionesNCCOntador'] = $this->Dash_model_nonconformities->CuentaAccionesNC($_SESSION['id']);
+        $this->load->view('main/Header_view', $data);
+        $this->load->view('nonconformities/View_salida');
         $this->load->view('main/Footer_view');
     }
     public function store()
